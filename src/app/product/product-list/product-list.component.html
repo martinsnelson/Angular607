@@ -1,0 +1,39 @@
+<div class="example-container mat-elevation-z8">
+  <div class="example-loading-shade"
+       *ngIf="loadingResult">
+    <div *ngIf="loadingResult">
+  </div>
+  </div> 
+  <div class="button-row">
+    <a href="/" color="primary" (click)="logout()">Logout</a>
+  </div>
+   <div class="mat-elevation-z8">
+   <table mdbTable>
+      <thead class="black white-text">
+        <th>Categoria</th>
+        <th>Id</th>
+        <th>Nome</th>
+        <th>Descrição</th>
+        <th>Fornecedor</th>
+        <th>Preço</th>
+        <th>Data Validade</th>
+      <!-- <tr>
+       <th *ngFor="let head of dados" scope="col">{{head}} </th>
+    </tr> -->
+    </thead>
+     <tbody>
+    <tr mdbTableCol *ngFor="let product of products">
+      <!-- <th scope="row">{{dado.produtoID}}</th> -->
+      <td>{{product.categoria}}</td>
+      <td>{{product.produtoID}}</td>
+      <td>{{product.nome}}</td>
+      <td>{{product.descricao}}</td>
+      <td>{{product.fornecedor}}</td>
+      <td>{{product.preco}}</td>
+      <td>{{product.dataValidade}}</td>      
+    </tr>
+  </tbody>
+</table>
+
+  </div>
+</div> -_- --> 

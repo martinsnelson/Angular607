@@ -1,0 +1,45 @@
+  <form [formGroup]="loginForm" (ngSubmit)="onFormSubmit(loginForm.value)">
+      <!-- <div class="form-group row align-items-center"> -->
+    <div class="form-group row">
+        <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
+        <div class="col-sm-3">
+            <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                  <div class="input-group-text">@</div>
+                </div>
+          <input type="email" formControlName="email" class="form-control" id="inputEmail3" placeholder="Email">
+        </div>
+        <div>
+            <span *ngIf="!loginForm.get('email').valid && loginForm.get('email').touched">Digite seu email</span>
+        </div>
+        </div>
+      </div>
+      <div class="form-group row">
+          <label for="inputPassword3" class="col-sm-2 col-form-label">Senha</label>
+          <div class="col-sm-3">
+            <input type="password" formControlName="senha" class="form-control" id="inputPassword3" placeholder="Senha">
+            <div>
+                <span *ngIf="!loginForm.get('senha').valid && loginForm.get('senha').touched">Digite sua senha</span>
+            </div>
+          </div>
+        </div>         
+          
+          <div class="form-group row">
+            <div class="col-sm-10">
+              <button type="submit" [disabled]="!loginForm.valid" class="btn btn-primary">Entrar</button>
+            </div>
+          </div>
+
+          <div class="form-group row">
+              <button type="button"  class="btn btn-primary" (click)="registrar()">Registrar</button>
+            </div> 
+
+          <div class="form-group row">
+              <div class="form-check mb-2">
+                <input class="form-check-input" type="checkbox" id="autoSizingCheck">
+                <label class="form-check-label" for="autoSizingCheck">
+                  Lembrar
+                </label>
+              </div>
+            </div>      
+  </form>

@@ -1,0 +1,34 @@
+<div class="example-container mat-elevation-z8">
+  <div class="example-loading-shade"
+       *ngIf="carregandoResult">
+    <div *ngIf="carregandoResult"></div>
+  </div>
+  <div class="example-card">
+    <form [formGroup]="registerForm" (ngSubmit)="onFormSubmit(registerForm.value)">
+      <div class="example-full-width">
+        <input  type="nome" placeholder="Full Name" formControlName="nome"
+                >
+        <div>
+          <span *ngIf="!registerForm.get('nome').valid && registerForm.get('nome').touched">Please enter your Full Name</span>
+        </div>
+      </div>
+      <div class="example-full-width">
+        <input  type="email" placeholder="Email" formControlName="email"
+               >
+        <div>
+          <span *ngIf="!registerForm.get('email').valid && registerForm.get('email').touched">Please enter your email</span>
+        </div>
+      </div>
+      <div class="example-full-width">
+        <input  type="password" placeholder="Senha" formControlName="senha"
+               >
+        <div>
+          <span *ngIf="!registerForm.get('senha').valid && registerForm.get('senha').touched">Please enter your password</span>
+        </div>
+      </div>
+      <div class="button-row">
+        <button type="submit" [disabled]="!registerForm.valid" mat-flat-button color="primary">Register</button>
+      </div>
+    </form>
+  </div>
+</div>
