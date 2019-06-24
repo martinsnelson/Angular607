@@ -1,0 +1,12 @@
+{{ filter }}
+<div class="text-center mt-3 mb-3">
+  <form>
+      <!-- event bind -->
+      <input type="search" class="rounded"
+           placeholder="Pesquisar.."
+           autofocus
+           (keyup)="filter = $event.target.value">
+  </form>
+</div>
+
+<app-photos [photos]="photos | filterByDescription: filter"></app-photos>

@@ -8,8 +8,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './auth/login/login.component'; 
 import { RegisterComponent } from './auth/register/register.component';
-import { ProductListComponent } from './product/product-list/product-list.component';
+import { ProductListComponent } from './products/product-list/product-list.component';
 import { PathNotFoundComponent } from './shared/Components/path-not-found/path-not-found.component';
+import { PhotosModule } from './photos/photos.module';
+
 
 @NgModule({
   declarations: [
@@ -17,14 +19,15 @@ import { PathNotFoundComponent } from './shared/Components/path-not-found/path-n
     LoginComponent,
     RegisterComponent,
     ProductListComponent,
-    PathNotFoundComponent,
+    PathNotFoundComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    PhotosModule
   ],
   providers: [
     {
