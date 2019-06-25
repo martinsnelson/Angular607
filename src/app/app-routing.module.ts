@@ -5,13 +5,13 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './auth/login/login.component';
 import { ProductListComponent } from './products/product-list/product-list.component';
 import { RegisterComponent } from './auth/register/register.component';
-import { PathNotFoundComponent } from './shared/Components/path-not-found/path-not-found.component';
+import { PathNotFoundComponent } from './shared/Components/errors/path-not-found/path-not-found.component';
 import { PhotoListComponent } from './photos/photo-list/photo-list.component';
 import { PhotoListResolver } from './photos/photo-list/photo-list.resolver';
 
 const routes: Routes = [
-   {
-    path: 'login',
+  {
+    path: '',
     component: LoginComponent,
     data: { title: 'Login' }
    },
@@ -41,7 +41,6 @@ const routes: Routes = [
 
 @NgModule({
   imports: [
-    CommonModule,
     RouterModule.forRoot(routes)
   ],
   exports: [

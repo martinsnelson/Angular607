@@ -1,7 +1,21 @@
 {{ filter }}
-<div class="text-center mt-3 mb-3">
+<app-search 
+    (onTyping)="filter = $event" [value]="filter">
+</app-search>
+
+<app-photos 
+    [photos]="photos | filterByDescription: filter">
+</app-photos>
+
+<app-load-button 
+    (click)="load()" 
+    [hasMore]="hasMore">
+</app-load-button>
+
+
+<!-- <div class="text-center mt-3 mb-3">
   <form>
-      <!-- event bind -->
+      -- event bind --
       <input type="search" class="rounded"
            placeholder="Pesquisar.."
            autofocus
@@ -9,4 +23,4 @@
   </form>
 </div>
 
-<app-photos [photos]="photos | filterByDescription: filter"></app-photos>
+<app-photos [photos]="photos | filterByDescription: filter"></app-photos> -->

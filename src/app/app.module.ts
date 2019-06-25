@@ -9,8 +9,8 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './auth/login/login.component'; 
 import { RegisterComponent } from './auth/register/register.component';
 import { ProductListComponent } from './products/product-list/product-list.component';
-import { PathNotFoundComponent } from './shared/Components/path-not-found/path-not-found.component';
 import { PhotosModule } from './photos/photos.module';
+import { ErrorsModule } from './shared/Components/errors/errors.module';
 
 
 @NgModule({
@@ -18,8 +18,7 @@ import { PhotosModule } from './photos/photos.module';
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    ProductListComponent,
-    PathNotFoundComponent
+    ProductListComponent    
   ],
   imports: [
     BrowserModule,
@@ -27,7 +26,8 @@ import { PhotosModule } from './photos/photos.module';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    PhotosModule
+    PhotosModule,
+    ErrorsModule
   ],
   providers: [
     {
@@ -39,3 +39,31 @@ import { PhotosModule } from './photos/photos.module';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+
+// @NgModule({
+//   declarations: [
+//     AppComponent,
+//     LoginComponent,
+//     RegisterComponent,
+//     ProductListComponent,
+//     PathNotFoundComponent
+//   ],
+//   imports: [
+//     BrowserModule,
+//     AppRoutingModule,
+//     HttpClientModule,
+//     FormsModule,
+//     ReactiveFormsModule,
+//     PhotosModule
+//   ],
+//   providers: [
+//     {
+//       provide: HTTP_INTERCEPTORS,
+//       useClass: TokenInterceptor,
+//       multi: true
+//     }
+//   ],
+//   bootstrap: [AppComponent]
+// })
+// export class AppModule { }
