@@ -11,6 +11,7 @@ import { RegisterComponent } from './auth/register/register.component';
 import { ProductListComponent } from './products/product-list/product-list.component';
 import { PhotosModule } from './photos/photos.module';
 import { ErrorsModule } from './shared/Components/errors/errors.module';
+import { ProductAddComponent } from './products/product-add/product-add.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { ErrorsModule } from './shared/Components/errors/errors.module';
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    ProductListComponent    
+    ProductListComponent,
+    ProductAddComponent    
   ],
   imports: [
     BrowserModule,

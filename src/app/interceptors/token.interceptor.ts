@@ -7,8 +7,7 @@ import { map, catchError } from 'rxjs/operators';
 @Injectable()
 export class TokenInterceptor implements HttpInterceptor {
 
-    constructor(private router: Router)
-    {
+    constructor(private router: Router) {
     }
 
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {       

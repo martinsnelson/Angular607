@@ -15,7 +15,10 @@ export class ProductListComponent implements OnInit {
   showColumns: string[] = ['produtoID', 'nome', 'descricao'];
   loadingResult = true;
 
-  constructor(private produtoService: ProductService, private authService: AuthService, private router: Router) { }
+  constructor(private produtoService: ProductService, 
+              private authService: AuthService, 
+              private router: Router) { 
+  }
 
   ngOnInit() {
     this.getProducts();
@@ -35,7 +38,11 @@ export class ProductListComponent implements OnInit {
 
   logout() {
     localStorage.removeItem('token');
-    this.router.navigate(['login']);
+    this.router.navigate(['register']);
+  }
+
+  produtoAdd() {
+    this.router.navigate(['adicionar-produto']);
   }
 
 }

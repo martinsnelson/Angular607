@@ -8,6 +8,7 @@ import { RegisterComponent } from './auth/register/register.component';
 import { PathNotFoundComponent } from './shared/Components/errors/path-not-found/path-not-found.component';
 import { PhotoListComponent } from './photos/photo-list/photo-list.component';
 import { PhotoListResolver } from './photos/photo-list/photo-list.resolver';
+import { ProductAddComponent } from './products/product-add/product-add.component';
 
 const routes: Routes = [
   {
@@ -21,17 +22,22 @@ const routes: Routes = [
     data: { title: 'Registrar' }
   },
   {
+    path: 'produto-lista',
+    component: ProductListComponent,
+    data: { title: 'Lista de Produtos' }
+  },
+  {
+    path: 'adicionar-produto',
+    component: ProductAddComponent,
+    data: { title: 'Adicionar Produto' }
+  },
+  {
     path: 'user/:userName', 
     component: PhotoListComponent,
     resolve: {
       photos: PhotoListResolver
     },
     data: { title: 'Fotos' }
-  },
-  {
-    path: 'produto',
-    component: ProductListComponent,
-    data: { title: 'Lista de Produtos' }
   },
   {
     path: '**', 
