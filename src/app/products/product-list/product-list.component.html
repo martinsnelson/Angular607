@@ -1,15 +1,127 @@
-<div class="example-container mat-elevation-z8">
+
   <div class="example-loading-shade"
        *ngIf="loadingResult">
-    <div *ngIf="loadingResult">
-  </div>
+    <div *ngIf="loadingResult"></div>
   </div> 
   <div class="button-row">
     <a href="/" color="primary" (click)="logout()">Logout</a>
   </div>
-   <div class="mat-elevation-z8">
-   <table mdbTable>
-      <thead class="black white-text">
+ 
+<div class="jumbotron">
+<div class="container text-center">
+  <h1>CBarato</h1>      
+  <p>Mission, Vission & Values</p>
+</div>
+</div>
+
+<nav class="navbar navbar-inverse">
+<div class="container-fluid">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>                        
+    </button>
+    <a class="navbar-brand" href="#">Logo</a>
+  </div>
+  <div class="collapse navbar-collapse" id="myNavbar">
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#">Home</a></li>
+      <li><a href="#">Products</a></li>
+      <li><a href="#">Deals</a></li>
+      <li><a href="#">Stores</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="#"><span class="glyphicon glyphicon-user"></span> Your Account</a></li>
+      <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
+    </ul>
+  </div>
+</div>
+</nav>
+
+<div class="container">    
+<div class="row">
+  <div class="col-sm-4">
+    <div class="panel panel-primary">
+      <div class="panel-heading">BLACK FRIDAY DEAL</div>
+      <div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></div>
+      <div class="panel-footer">Buy 50 mobiles and get a gift card</div>
+    </div>
+  </div>
+  <div class="col-sm-4"> 
+    <div class="panel panel-danger">
+      <div class="panel-heading">BLACK FRIDAY DEAL</div>
+      <div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></div>
+      <div class="panel-footer">Buy 50 mobiles and get a gift card</div>
+    </div>
+  </div>
+  <div class="col-sm-4"> 
+    <div class="panel panel-success">
+      <div class="panel-heading">BLACK FRIDAY DEAL</div>
+      <div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></div>
+      <div class="panel-footer">Buy 50 mobiles and get a gift card</div>
+    </div>
+  </div>
+</div>
+</div><br>
+
+<div class="container">    
+<div class="row">
+  <div class="col-sm-4">
+    <div class="panel panel-primary">
+      <div class="panel-heading">BLACK FRIDAY DEAL</div>
+      <div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></div>
+      <div class="panel-footer">Buy 50 mobiles and get a gift card</div>
+    </div>
+  </div>
+  <div class="col-sm-4"> 
+    <div class="panel panel-primary">
+      <div class="panel-heading">BLACK FRIDAY DEAL</div>
+      <div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></div>
+      <div class="panel-footer">Buy 50 mobiles and get a gift card</div>
+    </div>
+  </div>
+  <div class="col-sm-4"> 
+    <div class="panel panel-primary">
+      <div class="panel-heading">BLACK FRIDAY DEAL</div>
+      <div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></div>
+      <div class="panel-footer">Buy 50 mobiles and get a gift card</div>
+    </div>
+  </div>
+</div>
+</div><br><br>
+
+<footer class="container-fluid text-center">
+<p>Online Store Copyright</p>  
+<form class="form-inline">Get deals:
+  <input type="email" class="form-control" size="50" placeholder="Email Address">
+  <button type="button" class="btn btn-danger">Sign Up</button>
+</form>
+</footer>
+
+<p class="jumbotron"></p>
+
+<div>
+  <img class="img-thumbnail" [src]="url" [title]="titulo">
+</div>
+
+<app-doughnut-chart></app-doughnut-chart>
+
+<div class="form-group text-right">
+  <button type="button"  class="btn btn-primary" (click)="produtoAdd()">Adicionar Produto</button>
+</div>
+
+<div class="container">
+  <h2>Lista de Produtos</h2>
+  <p>The .table-hover class enables a hover state on table rows:</p>  
+  <div class="table-responsive">  
+  <table class="table table-hover">
+    <thead>
+      <!-- <tr>
+       <th *ngFor="let head of dados" scope="col">{{head}} </th>
+    </tr> -->
+      <tr>
         <th>Categoria</th>
         <th>Id</th>
         <th>Nome</th>
@@ -17,27 +129,31 @@
         <th>Fornecedor</th>
         <th>Preço</th>
         <th>Data Validade</th>
-      <!-- <tr>
-       <th *ngFor="let head of dados" scope="col">{{head}} </th>
-    </tr> -->
+        <th>Exluir</th>
+        <th>Editar</th>
+      </tr>
     </thead>
-     <tbody>
-    <tr mdbTableCol *ngFor="let product of products">
-      <!-- <th scope="row">{{dado.produtoID}}</th> -->
-      <td>{{product.categoria}}</td>
-      <td>{{product.produtoID}}</td>
-      <td>{{product.nome}}</td>
-      <td>{{product.descricao}}</td>
-      <td>{{product.fornecedor}}</td>
-      <td>{{product.preco}}</td>
-      <td>{{product.dataValidade}}</td>      
-    </tr>
-  </tbody>
-</table>
-
-  </div>
-</div> 
-<div class="form-group row">
-  <button type="button"  class="btn btn-primary" (click)="produtoAdd()">Adicionar Produto</button>
-</div> 
--_- --> 
+    <tbody *ngFor="let product of products">
+      <tr>
+        <td>{{product.categoria}}</td>        
+        <td>{{product.produtoID}}</td>    
+        <td>{{product.nome}}</td>  
+        <td>{{product.descricao}}</td>  
+        <td>{{product.fornecedor}}</td> 
+        <td>{{product.preco}}</td>
+        <td>{{product.dataValidade | date: 'dd/MM/yyyy'}}</td>
+        <td>
+        <div class="form-group">
+          <button type="button"  class="btn btn-danger" (click)="productDel()">Deletar</button>
+        </div>
+        </td>
+        <td>
+        <div class="form-group">
+          <button type="button"  class="btn btn-warning" (click)="produtoEdit()">Editar</button>
+        </div>
+      </td>        
+      </tr> 
+    </tbody>
+  </table>
+</div>        
+</div>

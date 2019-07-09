@@ -3,7 +3,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 
 import { Photo } from '../photos/photo';
 
-const API = 'http://localhost:5000';
+const API = 'http://localhost:3000';
 
 @Injectable({
   providedIn: 'root'
@@ -22,8 +22,7 @@ export class PhotoService {
       const params = new HttpParams()
           .append('page', page.toString());
 
-      return this.http
-          .get<Photo[]>(API + '/' + userName + '/photos', { params });       
+      return this.http.get<Photo[]>(API + '/' + userName + '/photos', { params });       
   }    
   
 }

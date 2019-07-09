@@ -9,6 +9,7 @@ import { PathNotFoundComponent } from './shared/Components/errors/path-not-found
 import { PhotoListComponent } from './photos/photo-list/photo-list.component';
 import { PhotoListResolver } from './photos/photo-list/photo-list.resolver';
 import { ProductAddComponent } from './products/product-add/product-add.component';
+import { PhotoFormComponent } from './photos/photo-form/photo-form.component';
 
 const routes: Routes = [
   {
@@ -38,6 +39,11 @@ const routes: Routes = [
       photos: PhotoListResolver
     },
     data: { title: 'Fotos' }
+  },
+  {
+    path: 'p/add', 
+    component: PhotoFormComponent,
+    data: { title: 'Add Fotos' }
   },
   {
     path: '**', 

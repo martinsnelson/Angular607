@@ -12,6 +12,7 @@ import { ProductListComponent } from './products/product-list/product-list.compo
 import { PhotosModule } from './photos/photos.module';
 import { ErrorsModule } from './shared/Components/errors/errors.module';
 import { ProductAddComponent } from './products/product-add/product-add.component';
+import { DoughnutChartModule } from './shared/Components/doughnut-chart/doughnut-chart.module';
 
 
 @NgModule({
@@ -25,10 +26,10 @@ import { ProductAddComponent } from './products/product-add/product-add.componen
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
     PhotosModule,
+    DoughnutChartModule,
     ErrorsModule
   ],
   providers: [
@@ -41,31 +42,3 @@ import { ProductAddComponent } from './products/product-add/product-add.componen
   bootstrap: [AppComponent]
 })
 export class AppModule { }
-
-
-// @NgModule({
-//   declarations: [
-//     AppComponent,
-//     LoginComponent,
-//     RegisterComponent,
-//     ProductListComponent,
-//     PathNotFoundComponent
-//   ],
-//   imports: [
-//     BrowserModule,
-//     AppRoutingModule,
-//     HttpClientModule,
-//     FormsModule,
-//     ReactiveFormsModule,
-//     PhotosModule
-//   ],
-//   providers: [
-//     {
-//       provide: HTTP_INTERCEPTORS,
-//       useClass: TokenInterceptor,
-//       multi: true
-//     }
-//   ],
-//   bootstrap: [AppComponent]
-// })
-// export class AppModule { }
