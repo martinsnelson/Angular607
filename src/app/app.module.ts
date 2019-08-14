@@ -12,6 +12,7 @@ import { ProductListComponent } from './products/product-list/product-list.compo
 import { PhotosModule } from './photos/photos.module';
 import { ErrorsModule } from './shared/Components/errors/errors.module';
 import { ProductAddComponent } from './products/product-add/product-add.component';
+import { TodoModule } from './todo/todo.module';
 
 
 @NgModule({
@@ -20,7 +21,7 @@ import { ProductAddComponent } from './products/product-add/product-add.componen
     LoginComponent,
     RegisterComponent,
     ProductListComponent,
-    ProductAddComponent    
+    ProductAddComponent,
   ],
   imports: [
     BrowserModule,
@@ -29,6 +30,7 @@ import { ProductAddComponent } from './products/product-add/product-add.componen
     FormsModule,
     ReactiveFormsModule,
     PhotosModule,
+    TodoModule,
     ErrorsModule
   ],
   providers: [

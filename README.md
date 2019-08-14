@@ -1,3 +1,12 @@
+# Steps:
+
+#1 - Instalar cli angular 6.0.7
+npm install -g @angular/cli@6.0.7 
+
+#2 - Verificar versão
+ng --version
+
+
 #Client Api marketplace(AspNetCoreAngular)
 
 # Angular607

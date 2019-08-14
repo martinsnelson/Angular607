@@ -9,13 +9,14 @@ import { PathNotFoundComponent } from './shared/Components/errors/path-not-found
 import { PhotoListComponent } from './photos/photo-list/photo-list.component';
 import { PhotoListResolver } from './photos/photo-list/photo-list.resolver';
 import { ProductAddComponent } from './products/product-add/product-add.component';
+import { TodoListComponent } from './todo/todo-list/todo-list.component';
 
 const routes: Routes = [
   {
     path: '',
     component: LoginComponent,
     data: { title: 'Login' }
-   },
+  },
   {
     path: 'registrar',
     component: RegisterComponent,
@@ -32,7 +33,12 @@ const routes: Routes = [
     data: { title: 'Adicionar Produto' }
   },
   {
-    path: 'user/:userName', 
+    path: 'todo-list',
+    component: TodoListComponent,
+    data: { title: 'Adicionar Tarefa' }
+  },
+  {
+    path: 'user/:userName',
     component: PhotoListComponent,
     resolve: {
       photos: PhotoListResolver
@@ -40,8 +46,8 @@ const routes: Routes = [
     data: { title: 'Fotos' }
   },
   {
-    path: '**', 
-    component: PathNotFoundComponent 
+    path: '**',
+    component: PathNotFoundComponent
   }
 ];
 
