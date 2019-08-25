@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { TodoListComponent } from './todo-list/todo-list.component';
+import { TodoAddComponent } from './todo-add/todo-add.component';
+import { TodoEditComponent } from './todo-edit/todo-edit.component';
 
 @NgModule({
   imports: [
@@ -10,7 +12,9 @@ import { TodoListComponent } from './todo-list/todo-list.component';
     ReactiveFormsModule
   ],
   declarations: [
-    TodoListComponent
+    TodoListComponent,
+    TodoAddComponent,
+    TodoEditComponent
   ]
 })
 export class TodoModule { }
