@@ -20,7 +20,7 @@ build_image:
   services:
   - docker:dind
   stage: package
-  extends: .extendjob  
+  extends: .extendjob
  
  
 push_to_heroku:
@@ -32,10 +32,10 @@ push_to_heroku:
   script:
     # This is for gitlab
     - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
-    - docker pull  <a class="vglnk" href="http://registry.gitlab.com/" rel="nofollow"><span>registry</span><span>.</span><span>gitlab</span><span>.</span><span>com</span><span>/</span></a><your-gitlab-username>/<your-docker-image-name>:latest
+    - docker pull  <a class="vglnk" href="http://registry.gitlab.com/" rel="nofollow"><span>registry</span><span>.</span><span>gitlab</span><span>.</span><span>com</span><span>/</span></a>cbaratomkapp/<your-docker-image-name>:latest
     # This is for heroku
     - docker login --username=18f1cf42-91b1-42ea-a5a5-1d4bf3e47053  --password=18f1cf42-91b1-42ea-a5a5-1d4bf3e47053 <a class="vglnk" href="http://registry.heroku.com" rel="nofollow"><span>registry</span><span>.</span><span>heroku</span><span>.</span><span>com</span></a>
-    - docker tag <a class="vglnk" href="http://registry.gitlab.com/" rel="nofollow"><span>registry</span><span>.</span><span>gitlab</span><span>.</span><span>com</span><span>/</span></a><your-gitlab-username>/<your-docker-image-name>:latest <a class="vglnk" href="http://registry.heroku.com/aqueous-falls-31318/web:latest" rel="nofollow"><span>registry</span><span>.</span><span>heroku</span><span>.</span><span>com</span><span>/</span><span>aqueous</span><span>-</span><span>falls</span><span>-</span><span>31318</span><span>/</span><span>web</span><span>:</span><span>latest</span></a>
+    - docker tag <a class="vglnk" href="http://registry.gitlab.com/" rel="nofollow"><span>registry</span><span>.</span><span>gitlab</span><span>.</span><span>com</span><span>/</span></a>cbaratomkapp/<your-docker-image-name>:latest <a class="vglnk" href="http://registry.heroku.com/aqueous-falls-31318/web:latest" rel="nofollow"><span>registry</span><span>.</span><span>heroku</span><span>.</span><span>com</span><span>/</span><span>aqueous</span><span>-</span><span>falls</span><span>-</span><span>31318</span><span>/</span><span>web</span><span>:</span><span>latest</span></a>
     - docker push <a class="vglnk" href="http://registry.heroku.com/" rel="nofollow"><span>registry</span><span>.</span><span>heroku</span><span>.</span><span>com</span><span>/</span></a><your-heroku-app-name>/web:latest
  
  

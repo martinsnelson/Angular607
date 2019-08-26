@@ -1,45 +1,92 @@
-  <form [formGroup]="loginForm" (ngSubmit)="onFormSubmit(loginForm.value)">
-      <!-- <div class="form-group row align-items-center"> -->
-    <div class="form-group row">
-        <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
+<!-- <div class="container h-100"> -->
+<!-- <div class="row h-100 justify-content-center align-items-center"> -->
+<!-- <form [formGroup]="loginForm" class="col-12" (ngSubmit)="onFormSubmit(loginForm.value)">
+      <div class="form-group row align-items-center"> -->
+<!-- <div class="form-group">
+        <label for="inputEmail3" class="col-sm-2 col-form-label">Email:</label>
         <div class="col-sm-3">
-            <div class="input-group mb-2">
-                <div class="input-group-prepend">
-                  <div class="input-group-text">@</div>
-                </div>
-          <input type="email" formControlName="email" class="form-control" id="inputEmail3" placeholder="Email">
-        </div>
-        <div>
+          <div class="input-group mb-2">
+            <div class="input-group-prepend">
+              <div class="input-group-text">@</div>
+            </div>
+            <input type="email" formControlName="email" class="form-control" id="inputEmail3" placeholder="Email">
+            <small id="emailHelp" class="form-text text-muted">Nunca compartilhamos seu email com ninguém.</small>
+          </div>
+          <div>
             <span *ngIf="!loginForm.get('email').valid && loginForm.get('email').touched">Digite seu email</span>
-        </div>
+          </div>
         </div>
       </div>
-      <div class="form-group row">
-          <label for="inputPassword3" class="col-sm-2 col-form-label">Senha</label>
-          <div class="col-sm-3">
-            <input type="password" formControlName="senha" class="form-control" id="inputPassword3" placeholder="Senha">
-            <div>
-                <span *ngIf="!loginForm.get('senha').valid && loginForm.get('senha').touched">Digite sua senha</span>
-            </div>
+      <div class="form-group">
+        <label for="inputPassword3" class="col-sm-2 col-form-label">Senha:</label>
+        <div class="col-sm-3">
+          <input type="password" formControlName="senha" class="form-control" id="inputPassword3" placeholder="Senha">
+          <div>
+            <span *ngIf="!loginForm.get('senha').valid && loginForm.get('senha').touched">Digite sua senha</span>
           </div>
-        </div>         
-          
-          <div class="form-group row">
-            <div class="col-sm-10">
-              <button type="submit" [disabled]="!loginForm.valid" class="btn btn-primary">Entrar</button>
-            </div>
-          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="btn btn-primary">
+          <button type="button" class="btn btn-primary" (click)="registrar()">Registrar</button>
+        </div>
+        <div class="btn btn-success">
+          <button type="submit" class="btn btn-success" [disabled]="!loginForm.valid">Entrar</button>
+        </div>
+      </div>
+      <div class="form-check mb-2">
+        <input class="form-check-input" type="checkbox" id="autoSizingCheck">
+        <label class="form-check-label" for="autoSizingCheck">
+          Lembrar
+        </label>
+      </div>
+    </form> -->
 
-          <div class="form-group row">
-              <button type="button"  class="btn btn-primary" (click)="registrar()">Registrar</button>
-            </div> 
-
-          <div class="form-group row">
-              <div class="form-check mb-2">
-                <input class="form-check-input" type="checkbox" id="autoSizingCheck">
-                <label class="form-check-label" for="autoSizingCheck">
-                  Lembrar
-                </label>
+<div class="row">
+  <div class="col">
+    <div class="mx-auto w-50 p-3 bg-dark text-white text-center">
+      <h1>CBARATO MARKET PLACE</h1>
+      <hr>
+      <form class="needs-validation" [formGroup]="loginForm" (ngSubmit)="onFormSubmit(loginForm.value)" novalidate>
+        <div class="form-row">
+          <div class="col-md-5 mb-3">
+            <label for="validationTooltipUsername">Email:</label>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="validationTooltipUsernamePrepend">@</span>
               </div>
-            </div>      
-  </form>
+              <input type="email" formControlName="email" class="form-control" id="validationTooltipUsername"
+                placeholder="Usuário" aria-describedby="validationTooltipUsernamePrepend" required>
+              <div class="invalid-tooltip">
+                Por favor, escolha um usuário válido e único.
+              </div>
+              <div>
+                <span *ngIf="!loginForm.get('email').valid && loginForm.get('email').touched">Digite seu email</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="col-md-5 mb-3">
+            <label for="validationTooltip03">Senha:</label>
+            <input type="password" formControlName="senha" class="form-control" id="validationTooltip03"
+              placeholder="Senha" required>
+            <div class="invalid-tooltip">
+              Por favor, informe uma senha válida.
+            </div>
+            <div>
+              <span *ngIf="!loginForm.get('senha').valid && loginForm.get('senha').touched">Digite sua senha</span>
+            </div>
+          </div>
+        </div>
+        <div class="form-row">
+          <button class="btn btn-success" type="submit" [disabled]="!loginForm.valid">Entrar</button>
+        </div>
+        <hr>
+        <div class="form-row">
+          <button class="btn btn-primary" (click)="registrar()">Registrar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
