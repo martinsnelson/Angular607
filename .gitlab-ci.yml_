@@ -1,0 +1,50 @@
+#  3 stages. Package, Push and Deploy.
+#  Package: Estamos criando a imagem do docker e a enviando para o registro do contêiner do gitlab.
+#  Push: Estamos entrando no gitlab e puxando nossa imagem. Depois disso, estamos logando no Heroku e 
+# empurrando nossa imagem do docker para o registro do container heroku.
+#  Deploy: Estamos liberando a imagem do docker do registro do container heroku.
+stages: 
+    - package
+    - push
+    - deploy
+# .extendjob: funciona algo como herança, podemos executar os mesmos comandos da linha de script 
+# sempre que precisarmos. 
+.extendjob:  
+  script:
+    - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
+    - docker build -t <a class="vglnk" href="http://registry.gitlab.com/" rel="nofollow"><span>registry</span><span>.</span><span>gitlab</span><span>.</span><span>com</span><span>/</span></a><your-gitlab-username>/<your-docker-image-name> .
+    - docker push <a class="vglnk" href="http://registry.gitlab.com/" rel="nofollow"><span>registry</span><span>.</span><span>gitlab</span><span>.</span><span>com</span><span>/</span></a><your-gitlab-username>/<your-docker-image-name>:latest
+ 
+build_image:
+  image: docker:latest
+  services:
+  - docker:dind
+  stage: package
+  extends: .extendjob  
+ 
+ 
+push_to_heroku:
+  image: docker:latest
+  stage: push
+  services:
+  - docker:dind
+  extends: .extendjob
+  script:
+    # This is for gitlab
+    - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
+    - docker pull  <a class="vglnk" href="http://registry.gitlab.com/" rel="nofollow"><span>registry</span><span>.</span><span>gitlab</span><span>.</span><span>com</span><span>/</span></a><your-gitlab-username>/<your-docker-image-name>:latest
+    # This is for heroku
+    - docker login --username=18f1cf42-91b1-42ea-a5a5-1d4bf3e47053  --password=18f1cf42-91b1-42ea-a5a5-1d4bf3e47053 <a class="vglnk" href="http://registry.heroku.com" rel="nofollow"><span>registry</span><span>.</span><span>heroku</span><span>.</span><span>com</span></a>
+    - docker tag <a class="vglnk" href="http://registry.gitlab.com/" rel="nofollow"><span>registry</span><span>.</span><span>gitlab</span><span>.</span><span>com</span><span>/</span></a><your-gitlab-username>/<your-docker-image-name>:latest <a class="vglnk" href="http://registry.heroku.com/aqueous-falls-31318/web:latest" rel="nofollow"><span>registry</span><span>.</span><span>heroku</span><span>.</span><span>com</span><span>/</span><span>aqueous</span><span>-</span><span>falls</span><span>-</span><span>31318</span><span>/</span><span>web</span><span>:</span><span>latest</span></a>
+    - docker push <a class="vglnk" href="http://registry.heroku.com/" rel="nofollow"><span>registry</span><span>.</span><span>heroku</span><span>.</span><span>com</span><span>/</span></a><your-heroku-app-name>/web:latest
+ 
+ 
+deploy_to_heroku:
+  image: node:latest
+  stage: deploy
+  services:
+  - docker:dind
+  extends: .extendjob
+  script:
+    - npm install -g heroku
+    - heroku container:release web --app cbarato
