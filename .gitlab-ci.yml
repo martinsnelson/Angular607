@@ -34,7 +34,7 @@ push_to_heroku:
     - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
     - docker pull  <a class="vglnk" href="http://registry.gitlab.com/" rel="nofollow"><span>registry</span><span>.</span><span>gitlab</span><span>.</span><span>com</span><span>/</span></a><your-gitlab-username>/<your-docker-image-name>:latest
     # This is for heroku
-    - docker login --username=_  --password=<heroku-auth-token> <a class="vglnk" href="http://registry.heroku.com" rel="nofollow"><span>registry</span><span>.</span><span>heroku</span><span>.</span><span>com</span></a>
+    - docker login --username=18f1cf42-91b1-42ea-a5a5-1d4bf3e47053  --password=18f1cf42-91b1-42ea-a5a5-1d4bf3e47053 <a class="vglnk" href="http://registry.heroku.com" rel="nofollow"><span>registry</span><span>.</span><span>heroku</span><span>.</span><span>com</span></a>
     - docker tag <a class="vglnk" href="http://registry.gitlab.com/" rel="nofollow"><span>registry</span><span>.</span><span>gitlab</span><span>.</span><span>com</span><span>/</span></a><your-gitlab-username>/<your-docker-image-name>:latest <a class="vglnk" href="http://registry.heroku.com/aqueous-falls-31318/web:latest" rel="nofollow"><span>registry</span><span>.</span><span>heroku</span><span>.</span><span>com</span><span>/</span><span>aqueous</span><span>-</span><span>falls</span><span>-</span><span>31318</span><span>/</span><span>web</span><span>:</span><span>latest</span></a>
     - docker push <a class="vglnk" href="http://registry.heroku.com/" rel="nofollow"><span>registry</span><span>.</span><span>heroku</span><span>.</span><span>com</span><span>/</span></a><your-heroku-app-name>/web:latest
  
@@ -47,4 +47,4 @@ deploy_to_heroku:
   extends: .extendjob
   script:
     - npm install -g heroku
-    - heroku container:release web --app <your-heroku-app-name>
+    - heroku container:release web --app cbarato
