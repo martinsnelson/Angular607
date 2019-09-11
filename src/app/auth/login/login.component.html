@@ -1,3 +1,48 @@
+<div class="jumbotron text-center">
+    <h1>CBARATO MARKETPLACE</h1>
+    <p>O seu caminho para o sucesso!</p>
+  </div>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-4">
+        <!-- <h3>Column 1</h3> -->
+      </div>
+      <div class="col-sm-4">
+        <fieldset>
+          <!-- <legend>Formulário de login</legend> -->
+          <form class="form-group" [formGroup]="loginForm" (ngSubmit)="onFormSubmit(loginForm.value)">
+            <div class="form-group">
+              <label for="email">Email:</label>
+              <input type="email" formControlName="email" class="form-control" id="email" placeholder="Email" required>
+              <div>
+                <span *ngIf="!loginForm.get('email').valid && loginForm.get('email').touched">Digite seu email</span>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="pwd">Senha:</label>
+              <input type="password" formControlName="senha" class="form-control" id="pwd" placeholder="Senha" required>
+              <div>
+                <span *ngIf="!loginForm.get('senha').valid && loginForm.get('senha').touched">Digite sua senha</span>
+              </div>
+            </div>
+            <div class="form-group form-check">
+              <label class="form-check-label">
+                <input class="form-check-input" type="checkbox"> Lembre de mim
+              </label>
+            </div>
+            <button class="btn btn-outline-primary" (click)="registrar()">Registrar</button>
+            <button type="submit" class="btn btn-outline-success" [disabled]="!loginForm.valid">Entrar</button>
+          </form>
+        </fieldset>
+        <button class="btn btn-primary">
+          <span class="spinner-border spinner-border-sm"></span>
+        </button>
+      </div>
+      <div class="col-sm-4">
+        <!-- <h3>Column 3</h3> -->
+      </div>
+    </div>
+  </div>
 <!-- <div class="container h-100"> -->
 <!-- <div class="row h-100 justify-content-center align-items-center"> -->
 <!-- <form [formGroup]="loginForm" class="col-12" (ngSubmit)="onFormSubmit(loginForm.value)">
@@ -42,51 +87,43 @@
       </div>
     </form> -->
 
-<div class="row">
-  <div class="col">
-    <div class="mx-auto w-50 p-3 bg-dark text-white text-center">
-      <h1>CBARATO MARKET PLACE</h1>
-      <hr>
-      <form class="needs-validation" [formGroup]="loginForm" (ngSubmit)="onFormSubmit(loginForm.value)" novalidate>
-        <div class="form-row">
-          <div class="col-md-5 mb-3">
-            <label for="validationTooltipUsername">Email:</label>
-            <div class="input-group">
-              <div class="input-group-prepend">
-                <span class="input-group-text" id="validationTooltipUsernamePrepend">@</span>
-              </div>
-              <input type="email" formControlName="email" class="form-control" id="validationTooltipUsername"
-                placeholder="Usuário" aria-describedby="validationTooltipUsernamePrepend" required>
-              <div class="invalid-tooltip">
-                Por favor, escolha um usuário válido e único.
-              </div>
-              <div>
-                <span *ngIf="!loginForm.get('email').valid && loginForm.get('email').touched">Digite seu email</span>
-              </div>
-            </div>
-          </div>
+  <!-- <form class="needs-validation" [formGroup]="loginForm" (ngSubmit)="onFormSubmit(loginForm.value)" novalidate>
+  <div class="form-row">
+    <div class="col-md-5 mb-3">
+      <label for="validationTooltipUsername">Email:</label>
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="validationTooltipUsernamePrepend">@</span>
         </div>
-        <div class="form-row">
-          <div class="col-md-5 mb-3">
-            <label for="validationTooltip03">Senha:</label>
-            <input type="password" formControlName="senha" class="form-control" id="validationTooltip03"
-              placeholder="Senha" required>
-            <div class="invalid-tooltip">
-              Por favor, informe uma senha válida.
-            </div>
-            <div>
-              <span *ngIf="!loginForm.get('senha').valid && loginForm.get('senha').touched">Digite sua senha</span>
-            </div>
-          </div>
+        <input type="email" formControlName="email" class="form-control" id="validationTooltipUsername"
+          placeholder="Usuário" aria-describedby="validationTooltipUsernamePrepend" required>
+        <div class="invalid-tooltip">
+          Por favor, escolha um usuário válido e único.
         </div>
-        <div class="form-row">
-          <button class="btn btn-success" type="submit" [disabled]="!loginForm.valid">Entrar</button>
+        <div>
+          <span *ngIf="!loginForm.get('email').valid && loginForm.get('email').touched">Digite seu email</span>
         </div>
-        <hr>
-        <div class="form-row">
-          <button class="btn btn-primary" (click)="registrar()">Registrar</button>
-        </div>
-      </form>
+      </div>
     </div>
   </div>
-</div>
+  <div class="form-row">
+    <div class="col-md-5 mb-3">
+      <label for="validationTooltip03">Senha:</label>
+      <input type="password" formControlName="senha" class="form-control" id="validationTooltip03" placeholder="Senha"
+        required>
+      <div class="invalid-tooltip">
+        Por favor, informe uma senha válida.
+      </div>
+      <div>
+        <span *ngIf="!loginForm.get('senha').valid && loginForm.get('senha').touched">Digite sua senha</span>
+      </div>
+    </div>
+  </div>
+  <div class="form-row">
+    <button class="btn btn-success" type="submit" [disabled]="!loginForm.valid">Entrar</button>
+  </div>
+  <hr>
+  <div class="form-row">
+    <button class="btn btn-primary" (click)="registrar()">Registrar</button>
+  </div>
+</form> -->

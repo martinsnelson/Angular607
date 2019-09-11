@@ -1,4 +1,43 @@
-<div class="example-container mat-elevation-z8">
+<!-- The video -->
+<video autoplay muted loop id="myVideo">
+  <source src="rain.mp4" type="video/mp4">
+</video>
+<div class="card text-center">
+  <div class="card-header">
+    Featured
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">Special title treatment</h5>
+    <form class="form-group" [formGroup]="registerForm" (ngSubmit)="onFormSubmit(registerForm.value)">
+      <label for="email">Email:</label>
+      <input type="nome" class="form-control" placeholder="Full Name" formControlName="nome">
+      <div>
+        <span *ngIf="!registerForm.get('nome').valid && registerForm.get('nome').touched">Please enter your Full
+          Name</span>
+      </div>
+      <label for="email">Email:</label>
+      <input type="email" class="form-control" placeholder="Email" formControlName="email">
+      <div>
+        <span *ngIf="!registerForm.get('email').valid && registerForm.get('email').touched">Please enter your
+          email</span>
+      </div>
+      <label for="email">Email:</label>
+      <input type="password" class="form-control" placeholder="Senha" formControlName="senha">
+      <div>
+        <span *ngIf="!registerForm.get('senha').valid && registerForm.get('senha').touched">Please enter your
+          password</span>
+      </div>
+      <button type="submit" [disabled]="!registerForm.valid" mat-flat-button color="primary">Register</button>
+    </form>
+    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+  <div class="card-footer text-muted">
+    2 days ago
+  </div>
+</div>
+
+<!-- <div class="example-container mat-elevation-z8">
   <div class="example-loading-shade"
        *ngIf="carregandoResult">
     <div *ngIf="carregandoResult"></div>
@@ -6,22 +45,19 @@
   <div class="example-card">
     <form [formGroup]="registerForm" (ngSubmit)="onFormSubmit(registerForm.value)">
       <div class="example-full-width">
-        <input  type="nome" placeholder="Full Name" formControlName="nome"
-                >
+        <input  type="nome" placeholder="Full Name" formControlName="nome">|
         <div>
           <span *ngIf="!registerForm.get('nome').valid && registerForm.get('nome').touched">Please enter your Full Name</span>
         </div>
       </div>
       <div class="example-full-width">
-        <input  type="email" placeholder="Email" formControlName="email"
-               >
+        <input  type="email" placeholder="Email" formControlName="email">
         <div>
           <span *ngIf="!registerForm.get('email').valid && registerForm.get('email').touched">Please enter your email</span>
         </div>
       </div>
       <div class="example-full-width">
-        <input  type="password" placeholder="Senha" formControlName="senha"
-               >
+        <input  type="password" placeholder="Senha" formControlName="senha">
         <div>
           <span *ngIf="!registerForm.get('senha').valid && registerForm.get('senha').touched">Please enter your password</span>
         </div>
@@ -31,4 +67,4 @@
       </div>
     </form>
   </div>
-</div>
+</div> -->
