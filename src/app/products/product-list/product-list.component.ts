@@ -19,10 +19,12 @@ export class ProductListComponent implements OnInit {
               private authService: AuthService, 
               private router: Router) { 
   }
+  
 
   ngOnInit() {
     this.getProducts();
   }
+
 
   getProducts():void {
     this.produtoService.getProducts()
@@ -36,13 +38,14 @@ export class ProductListComponent implements OnInit {
       });
   }
 
+
   logout() {
     localStorage.removeItem('token');
-    this.router.navigate(['register']);
+    this.router.navigate(['/']);
   }
+
 
   produtoAdd() {
     this.router.navigate(['adicionar-produto']);
   }
-
 }

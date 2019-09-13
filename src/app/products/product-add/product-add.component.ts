@@ -16,4 +16,7 @@ export class ProductAddComponent implements OnInit {
   ngOnInit() {
   }
 
+  back(){
+    this.router.navigate(['produto-lista'])
+  }
 }
