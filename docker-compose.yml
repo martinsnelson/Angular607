@@ -1,0 +1,17 @@
+version: "3"
+
+services:
+  angular:
+    image: angular
+    container_name: angular
+    build:
+      context: .
+    environment:
+      ENV: production
+    ports:
+      - "80:80"
+#     networks:
+#       - desafio
+# networks:
+#   desafio:
+#     driver: bridge
