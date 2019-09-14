@@ -29,3 +29,5 @@ COPY nginx.conf /etc/nginx/nginx.conf
 
 #  Caminho ninja
 # COPY dist/ .
+
+CMD sed -i -e 's/$PORT/'"$PORT"'/g' /etc/nginx/nginx.conf && nginx -g 'daemon off;'
