@@ -19,8 +19,8 @@ RUN npm run build
 
 #  Caminho ninja com alpine
 # FROM nginx:alpine
-# FROM nginx:1.13
-FROM nginx:1.17.3
+# FROM nginx:1.17.3
+FROM 1.17.3-alpine
 # COPY --from=node /app/dist/Angular607 /usr/share/nginx/html
 COPY --from=node /app/dist/ /usr/share/nginx/html
 
