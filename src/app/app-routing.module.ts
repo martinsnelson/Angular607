@@ -33,7 +33,7 @@ const routes: Routes = [
     data: { title: 'Adicionar Produto' }
   },
   {
-    path: 'todo-list',
+    path: 'lista-tarefas',
     component: TodoListComponent,
     data: { title: 'Adicionar Tarefa' }
   },

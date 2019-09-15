@@ -47,6 +47,10 @@ export class LoginComponent implements OnInit {
       this.router.navigate(['registrar']);
     }
 
+
+    todo(){
+      this.router.navigate(['lista-tarefas']);
+    }
 }
 
 // Angular Material: Erro quando o controle inválido está sujo, é tocado ou enviado 
