@@ -16,7 +16,9 @@ export class RegisterComponent implements OnInit {
   carregandoResult = false;
   //EstadoErro = new EstadoControleErro();
 
-  constructor(private formBuilder: FormBuilder, private router: Router, private authService: AuthService) { 
+  constructor(private formBuilder: FormBuilder, 
+    private router: Router, 
+    private authService: AuthService) { 
   }
 
   ngOnInit() {
@@ -30,7 +32,7 @@ export class RegisterComponent implements OnInit {
   onFormSubmit(form: NgForm) {
     this.authService.register(form)
       .subscribe(res => {
-        this.router.navigate(['/']);
+        this.router.navigate(['/login']);
       }, (err) => {
         console.log(err);
         alert(err.error);

@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+// import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptor } from './interceptors/token.interceptor';
@@ -13,13 +13,12 @@ import { PhotosModule } from './photos/photos.module';
 import { ErrorsModule } from './shared/Components/errors/errors.module';
 import { ProductAddComponent } from './products/product-add/product-add.component';
 import { TodoModule } from './todo/todo.module';
+import { AuthModule } from './auth/auth.module';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
-    RegisterComponent,
     ProductListComponent,
     ProductAddComponent,
   ],
@@ -27,10 +26,11 @@ import { TodoModule } from './todo/todo.module';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule,
-    ReactiveFormsModule,
+    // FormsModule,
+    // ReactiveFormsModule,
     PhotosModule,
     TodoModule,
+    AuthModule,
     ErrorsModule
   ],
   providers: [

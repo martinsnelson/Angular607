@@ -5,7 +5,9 @@
     <p class="text-center">
       <!-- <small>Nenhuma tarefa cadastrada</small> -->
     </p>
-    <li *ngFor="let todo of todos">
+    <input type="text" (keyup)="filter = $event.target.value" placeholder="Descrição da tarefa" maxlength="60">
+    
+    <li *ngFor="let todo of (todos | filterByDescription: filter)">
       {{ todo.description }} -
       <!-- efeito toggle -->
       <button (click)="remove(todo)"><i class="far fa-trash-alt"></i></button>

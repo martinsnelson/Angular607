@@ -13,17 +13,19 @@
           <form class="form-group" [formGroup]="loginForm" (ngSubmit)="onFormSubmit(loginForm.value)">
             <div class="form-group">
               <label for="email">Email:</label>
-              <input type="email" formControlName="email" class="form-control" id="email" placeholder="Email" required>
-              <div>
-                <span *ngIf="!loginForm.get('email').valid && loginForm.get('email').touched">Digite seu email</span>
-              </div>
+              <input #userNameFocusHtmlRef type="email" formControlName="email" class="form-control" id="email" placeholder="Email" required>
+              <app-message 
+                *ngIf="!loginForm.get('email').valid && loginForm.get('email').touched"
+                text = "Digite seu email">
+              </app-message>
             </div>
             <div class="form-group">
               <label for="pwd">Senha:</label>
               <input type="password" formControlName="senha" class="form-control" id="pwd" placeholder="Senha" required>
-              <div>
-                <span *ngIf="!loginForm.get('senha').valid && loginForm.get('senha').touched">Digite sua senha</span>
-              </div>
+              <app-message 
+                *ngIf="!loginForm.get('senha').valid && loginForm.get('senha').touched"
+                text = "Digite sua senha">
+              </app-message>
             </div>
             <div class="form-group form-check">
               <label class="form-check-label">
@@ -38,6 +40,7 @@
           <span class="spinner-border spinner-border-sm"></span>
         </button>
         <button class="btn btn-outline-primary" (click)="todo()">Tarefas</button>
+        <a routerLink="/lista-tarefas">Tarefas</a>
       </div>
       <div class="col-sm-4">
         <!-- <h3>Column 3</h3> -->

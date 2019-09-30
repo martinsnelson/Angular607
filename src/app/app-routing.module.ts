@@ -12,8 +12,9 @@ import { ProductAddComponent } from './products/product-add/product-add.componen
 import { TodoListComponent } from './todo/todo-list/todo-list.component';
 
 const routes: Routes = [
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
   {
-    path: '',
+    path: 'login',
     component: LoginComponent,
     data: { title: 'Login' }
   },

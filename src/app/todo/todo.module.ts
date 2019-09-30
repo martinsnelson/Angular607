@@ -5,6 +5,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { TodoListComponent } from './todo-list/todo-list.component';
 import { TodoAddComponent } from './todo-add/todo-add.component';
 import { TodoEditComponent } from './todo-edit/todo-edit.component';
+import { FilterByTodo } from './todo-list/filter-by-todo.pipe';
 
 @NgModule({
   imports: [
@@ -14,7 +15,8 @@ import { TodoEditComponent } from './todo-edit/todo-edit.component';
   declarations: [
     TodoListComponent,
     TodoAddComponent,
-    TodoEditComponent
+    TodoEditComponent,
+    FilterByTodo
   ]
 })
 export class TodoModule { }

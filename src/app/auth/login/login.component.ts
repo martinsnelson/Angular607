@@ -1,9 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, NgForm, FormGroupDirective, FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
 
-import { AuthService } from 'src/app/service/auth.service';
+import { AuthService } from '../../service/auth.service';
+import { PlatformDetectorService } from '../../service/platform-detector/platform-detector.service';
 
+// import { AuthService } from 'src/app/service/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -16,40 +18,49 @@ export class LoginComponent implements OnInit {
   senha = '';
   //EstadoErro = new EstadoControleErro();
   carregandoResult = false;
+  @ViewChild('userNameFocusHtmlRef') userNameFocusHtmlRef: ElementRef<HTMLInputElement>;
 
-  constructor(private formBuilder: FormBuilder, private router: Router, private authService: AuthService) { 
+  constructor(private _formBuilder: FormBuilder, 
+    private _router: Router, 
+    private _authService: AuthService,
+    private _platformDetectorService: PlatformDetectorService) { 
     
   }
 
   ngOnInit() {
-    this.loginForm = this.formBuilder.group({
+    this.loginForm = this._formBuilder.group({
       // 'email' : ['nelsontecti@gmail.com', Validators.required],
       // 'senha' : ['n3Ls0n29', Validators.required]
       'email' : [null, Validators.required],
       'senha' : [null, Validators.required]
     });
+
+    //  Se true a condição executa o focus
+    this._platformDetectorService.isPlatformBrowser() && 
+      this.userNameFocusHtmlRef.nativeElement.focus();
   }
 
   onFormSubmit(form: NgForm) {
-    this.authService.login(form)
+    this._authService.login(form)
       .subscribe(res => {
         console.log(res);
         if (res.token) {
           localStorage.setItem('token', res.token);
-          this.router.navigate(['produto-lista']);
+          this._router.navigate(['produto-lista']);
         }
       }, (err) => {
         console.log(err);
+        alert(err);
       });
     }
 
     registrar() {
-      this.router.navigate(['registrar']);
+      this._router.navigate(['registrar']);
     }
 
 
     todo(){
-      this.router.navigate(['lista-tarefas']);
+      this._router.navigate(['lista-tarefas']);
     }
 }
 
